@@ -1,0 +1,56 @@
+<html>
+    <body>
+
+        {% include 'superior/barra.html'%}
+
+        <h2 style="color: red">
+            ¡Hola, crack, eres un grande!
+        </h2>
+
+        {# NO TEMAS DISEÑADOR IGNORA ESTA PARTE #}
+
+        {% comment %} 
+            En un lugar de la Mancha, 
+            de cuyo nombre no quiero acordarme...
+        {% endcomment %}
+
+        {# FIN COMENTARIO #}
+
+        {% if nombre_persona == 'Profesor Alberto' %} 
+
+        <p>El curso lo imparte el profesor titular</p> 
+
+        {% else %}
+
+        <p>El curso lo imparte el profesor suplente</p>
+
+        {% endif %} 
+
+        <p>
+            El nombre del profesor es: {{nombre_persona|upper}} {{apellido_persona|lower}}. 
+        </p>
+        <p>
+            Estamos viendo plantillas a d&iacute;a: {{momento_actual.day}} / {{momento_actual.month}} / {{momento_actual.year}}.
+        </p>
+        <p><strong>Temas del curso:</strong></p>
+        <p>
+            <ul>
+
+            {% if temas %}
+  
+                {% for el_tema in temas %}
+
+                <li> {{el_tema|first|lower}} </li> 
+
+                {% endfor %}
+
+            {% else %} 
+
+                <p>No hay temas disponibles en este momento.</p>
+
+            {% endif %}
+
+            </ul>
+        </p>
+    </body>
+</html>
